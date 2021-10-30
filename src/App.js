@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Dropdown } from "./Dropdown";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={'container'}>
+      <div className={'anyblock'} />
+      <Dropdown
+        className="dropdown"
+        value="Test 15"
+        defaultValue="Test 15"
+        label="label"
+        icon="icon"
+        disabled={false}
+        onChange={() => console.log('change')}
+      >
+        {(new Array(33)).fill(1).map((item, key) => (
+          <Dropdown.Option key={key} value={`Test ${key + 1}`} className="option" disabled={false}>
+            {`Test ${key + 1}`}
+          </Dropdown.Option>
+        ))}
+      </Dropdown>
+      <div className={'anyblock'} />
     </div>
   );
 }
